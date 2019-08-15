@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: '../config/config-android.gradle'
+apply from: '../config/config-properties.gradle'
+
+android {
+    defaultConfig {
+        applicationId "com.bapspatil.elon"
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    kotlin()
+    dagger()
+    networking()
+    rx()
+    architectureComponents()
+    view()
+    testing()
+}

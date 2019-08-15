@@ -1,0 +1,29 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        apply from: 'config/deps-versions.gradle'
+        apply from: 'config/deps-all.gradle'
+
+        classpath deps.build.gradle
+        classpath deps.build.kotlin
+    }
+}
+
+allprojects {
+    apply from: "$rootDir/ktlint.gradle"
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies { apply from: "$rootDir/config/deps-groups.gradle" }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

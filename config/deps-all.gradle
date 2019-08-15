@@ -1,0 +1,92 @@
+ext.deps = [
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // BUILD                                                                                  //
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        'build'      : [
+                'gradle': "com.android.tools.build:gradle:$versions.gradle",
+                'kotlin': "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        ],
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // MAIN                                                                                   //
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        'kotlin'     : [
+                'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+                'ktx'       : "androidx.core:core-ktx:$versions.ktx",
+        ],
+        'support'    : [
+                'compat'        : "androidx.appcompat:appcompat:$versions.supportx",
+                'constraint'    : "androidx.constraintlayout:constraintlayout:$versions.constraintx",
+                'cardView'      : "androidx.cardview:cardview:$versions.cardviewx",
+                'recyclerView'  : "androidx.recyclerview:recyclerview:$versions.supportx",
+                'design'        : "com.android.support:design:$versions.support",
+        ],
+        'dagger'     : [
+                'dagger'   : "com.google.dagger:dagger:$versions.dagger",
+                'compiler' : "com.google.dagger:dagger-compiler:$versions.dagger",
+                'android'  : "com.google.dagger:dagger-android:$versions.dagger",
+                'support'  : "com.google.dagger:dagger-android-support:$versions.dagger",
+                'processor': "com.google.dagger:dagger-android-processor:$versions.dagger",
+        ],
+        'retrofit'   : [
+                'retrofit': "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                'gson'    : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                'rx'      : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        ],
+        'okHttp'     : [
+                'logging': "com.squareup.okhttp3:logging-interceptor:$versions.okHttp",
+        ],
+        'rx'         : [
+                'android': "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+                'java'   : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+                'relay'  : "com.jakewharton.rxrelay2:rxrelay:$versions.rxRelay",
+        ],
+        'ac'         : [
+                'viewModel'     : "android.arch.lifecycle:viewmodel:$versions.architecture",
+                'compiler'      : "android.arch.lifecycle:compiler:$versions.architecture",
+                'extensions'    : "android.arch.lifecycle:extensions:$versions.architecture",
+                'runtime'       : "android.arch.lifecycle:runtime:$versions.architecture",
+                'java'          : "android.arch.lifecycle:common-java8:$versions.architecture",
+        ],
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // UI                                                                                //
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        'ui'         : [
+                'lottie'                : "com.airbnb.android:lottie:$versions.lottie",
+                'glide'                 : "com.github.bumptech.glide:glide:$versions.glide",
+                'glidecompiler'         : "com.github.bumptech.glide:compiler:$versions.glide",
+                'material'              : "com.google.android.material:material:$versions.material",
+                'drag'                  : "com.github.davidmigloz:drag-to-close:$versions.drag",
+                'groupie'               : "com.xwray:groupie:$versions.groupie",
+                'groupieKtx'            : "com.xwray:groupie-kotlin-android-extensions:$versions.groupie",
+                'sparkButton'           : "com.github.varunest:sparkbutton:$versions.sparkButton"
+        ],
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // TESTING                                                                                //
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        'test'     : [
+                'jUnit'         : "junit:junit:$versions.jUnit",
+                'jUnitKotlin'   : "org.jetbrains.kotlin:kotlin-test-junit:$versions.jUnitKotlin",
+                'extJunit'      : "androidx.test.ext:junit:$versions.androidxtest",
+                'truth'         : "com.google.truth:truth:$versions.truth",
+                'mockito'    : [
+                        'core'     : "org.mockito:mockito-core:$versions.mockito",
+                        'android'  : "org.mockito:mockito-android:$versions.mockito",
+                        'inline'   : "org.mockito:mockito-inline:$versions.mockito",
+                        'kotlin'   : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitokotlin",
+                ],
+                'runner'                : "androidx.test:runner:$versions.runner",
+                'rules'                 : "androidx.test:rules:$versions.androidxtest",
+                'espresso'              : "androidx.test.espresso:espresso-core:$versions.espresso",
+                'espressoIintents'      : "androidx.test.espresso:espresso-intents:$versions.espresso",
+                'coretesting'           : "android.arch.core:core-testing:$versions.coretesting"
+        ]
+]

@@ -1,0 +1,107 @@
+def Group(Closure closure) {
+    closure.delegate = dependencies
+    return closure
+}
+
+ext {
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // KOTLIN                                                                                     //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    kotlin = Group {
+        implementation deps.kotlin.lib
+        implementation deps.kotlin.ktx
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // DAGGER   : DEP INJECTION                                                                   //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    dagger = Group {
+        implementation deps.dagger.dagger
+        kapt deps.dagger.compiler
+        implementation deps.dagger.android
+        implementation deps.dagger.support
+        kapt deps.dagger.processor
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // NETWORKING                                                                                 //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    networking = Group {
+        implementation deps.retrofit.retrofit
+        implementation deps.retrofit.gson
+        implementation deps.retrofit.rx
+        implementation deps.okHttp.logging
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // RX                                                                                         //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    rx = Group {
+        implementation deps.rx.android
+        implementation deps.rx.java
+        implementation deps.rx.relay
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // ARCHITECTURE COMPONENTS                                                                    //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    architectureComponents = Group {
+        implementation deps.ac.viewModel
+        implementation deps.ac.runtime
+        implementation deps.ac.extensions
+        implementation deps.ac.java
+        kapt deps.ac.compiler
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // VIEW                                                                                       //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    view = Group {
+        implementation deps.support.compat
+        implementation deps.support.constraint
+        implementation deps.support.cardView
+        implementation deps.support.recyclerView
+        implementation deps.support.design
+
+        implementation deps.ui.glide
+        kapt deps.ui.glidecompiler
+        implementation deps.ui.lottie
+        implementation deps.ui.material
+        implementation deps.ui.drag
+        implementation deps.ui.groupie
+        implementation deps.ui.groupieKtx
+        implementation deps.ui.sparkButton
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // TESTING                                                                                     //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    testing = Group {
+
+        // unit tests
+        testImplementation deps.test.jUnit
+        testImplementation deps.test.mockito.core
+        testImplementation deps.test.mockito.inline
+        testImplementation deps.test.mockito.kotlin
+        testImplementation deps.test.coretesting
+        testImplementation deps.test.runner
+        testImplementation deps.test.truth
+
+        //espresso tests
+        androidTestImplementation deps.kotlin.lib
+        androidTestImplementation deps.test.mockito.kotlin
+        androidTestImplementation deps.test.mockito.android
+        androidTestImplementation deps.test.mockito.core
+        androidTestImplementation deps.test.extJunit
+        androidTestImplementation deps.test.jUnit
+        androidTestImplementation deps.test.espressoIintents
+    }
+}
