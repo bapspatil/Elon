@@ -1,7 +1,7 @@
 
 # Elon
 
-An Android app that shows a list of images of the Milky Way from 2017.
+An Android app that shows a list of Milky Way images taken in 2017.
 
 ## Developed By
 
