@@ -27,6 +27,7 @@ ext.versions = [
         'okHttp'      : '3.13.1',
         'architecture': '1.1.1',
         'groupie'     : '2.3.0',
+        'threeten'    : '1.2.1',
 
 
 
@@ -52,5 +53,6 @@ ext.versions = [
         'androidxtest'   : '1.1.0',
         'espresso'       : '3.2.0-beta01',
         'coretesting'    : '1.1.1',
-        'mockitokotlin'  : '2.1.0'
+        'mockitokotlin'  : '2.1.0',
+        'threetentest'   : '1.4.0'
 ]

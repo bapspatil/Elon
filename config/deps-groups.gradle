@@ -78,6 +78,7 @@ ext {
         implementation deps.ui.groupie
         implementation deps.ui.groupieKtx
         implementation deps.ui.sparkButton
+        implementation deps.support.threeten
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -94,6 +95,7 @@ ext {
         testImplementation deps.test.coretesting
         testImplementation deps.test.runner
         testImplementation deps.test.truth
+        testImplementation deps.test.threetentest
 
         //espresso tests
         androidTestImplementation deps.kotlin.lib

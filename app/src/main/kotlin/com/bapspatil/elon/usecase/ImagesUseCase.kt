@@ -1,6 +1,6 @@
 package com.bapspatil.elon.usecase
 
-import com.bapspatil.elon.api.model.NasaItem
+import com.bapspatil.elon.model.NasaImage
 import io.reactivex.Single
 
 /*
@@ -8,5 +8,5 @@ import io.reactivex.Single
 */
 
 interface ImagesUseCase {
-    fun getImages(query: String?, mediaType: String?, yearStart: Int?, yearEnd: Int?): Single<ArrayList<NasaItem>>
+    fun getImages(query: String?, mediaType: String?, yearStart: Int?, yearEnd: Int?): Single<List<NasaImage>>
 }

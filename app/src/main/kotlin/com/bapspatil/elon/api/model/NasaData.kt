@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class NasaData(
     @SerializedName("album")
-    val album: ArrayList<String>,
+    val album: List<String>,
     @SerializedName("center")
     val center: String, // GSFC
     @SerializedName("date_created")
@@ -13,7 +13,7 @@ data class NasaData(
     @SerializedName("description")
     val description: String, // Description of the image goes here.
     @SerializedName("keywords")
-    val keywords: ArrayList<String>,
+    val keywords: List<String>,
     @SerializedName("location")
     val location: String, // Greenbelt, MD
     @SerializedName("media_type")

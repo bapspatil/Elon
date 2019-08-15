@@ -1,6 +1,6 @@
 package com.bapspatil.elon.usecase
 
-import com.bapspatil.elon.api.model.NasaItem
+import com.bapspatil.elon.model.NasaImage
 import com.bapspatil.elon.repo.ImagesRepository
 import io.reactivex.Single
 import javax.inject.Inject
@@ -12,7 +12,7 @@ import javax.inject.Inject
 class ImagesUseCaseImpl
 @Inject constructor(private val imagesRepository: ImagesRepository) : ImagesUseCase {
 
-    override fun getImages(query: String?, mediaType: String?, yearStart: Int?, yearEnd: Int?): Single<ArrayList<NasaItem>> {
+    override fun getImages(query: String?, mediaType: String?, yearStart: Int?, yearEnd: Int?): Single<List<NasaImage>> {
         return imagesRepository.getImagesFromApi(query, mediaType, yearStart, yearEnd)
     }
 

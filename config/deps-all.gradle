@@ -23,6 +23,7 @@ ext.deps = [
                 'cardView'      : "androidx.cardview:cardview:$versions.cardviewx",
                 'recyclerView'  : "androidx.recyclerview:recyclerview:$versions.supportx",
                 'design'        : "com.android.support:design:$versions.support",
+                'threeten'      : "com.jakewharton.threetenabp:threetenabp:$versions.threeten"
         ],
         'dagger'     : [
                 'dagger'   : "com.google.dagger:dagger:$versions.dagger",
@@ -87,6 +88,7 @@ ext.deps = [
                 'rules'                 : "androidx.test:rules:$versions.androidxtest",
                 'espresso'              : "androidx.test.espresso:espresso-core:$versions.espresso",
                 'espressoIintents'      : "androidx.test.espresso:espresso-intents:$versions.espresso",
-                'coretesting'           : "android.arch.core:core-testing:$versions.coretesting"
+                'coretesting'           : "android.arch.core:core-testing:$versions.coretesting",
+                'threetentest'          : "org.threeten:threetenbp:$versions.threetentest"
         ]
 ]
