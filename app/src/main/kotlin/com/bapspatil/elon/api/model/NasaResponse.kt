@@ -3,7 +3,7 @@ package com.bapspatil.elon.api.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ApiNasaResponse(
+data class NasaResponse(
     @SerializedName("collection")
-    val collection: ApiCollection?
+    val collection: NasaCollection
 )
