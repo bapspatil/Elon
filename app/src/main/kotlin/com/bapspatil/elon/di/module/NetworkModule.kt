@@ -92,7 +92,7 @@ class NetworkModule {
     fun createNasaService(retrofit: Retrofit): NasaService = retrofit.create(NasaService::class.java)
 
     companion object {
-        private const val TIMEOUT_SEC = 20L
+        private const val TIMEOUT_SEC = 10L
         private const val cacheMaxAgeMinute = 10
         private const val cacheSize = 1024 * 1024 * 10L // 10 MB
         private const val cacheName = "cache_name"

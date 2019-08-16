@@ -2,4 +2,5 @@
     <string name="app_name">Elon</string>
     <string name="nasa_image_description">This is the image of the post</string>
     <string name="reload">Reload</string>
+    <string name="state_image_description">State of the app</string>
 </resources>

@@ -1,19 +1,19 @@
 package com.bapspatil.elon.ui.list
 
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bapspatil.elon.R
 import com.bapspatil.elon.model.NasaImage
 import com.bapspatil.elon.ui.base.BaseActivity
+import com.bapspatil.elon.ui.detail.ImageDetailActivity
 import com.bapspatil.elon.ui.list.adapter.ImagesAdapter
 import com.bapspatil.elon.util.io
+import com.bapspatil.elon.util.setNavBarColor
+import com.bapspatil.elon.util.setStatusBarColor
 import kotlinx.android.synthetic.main.activity_images_list.*
 import javax.inject.Inject
 
@@ -47,13 +47,11 @@ class ImagesListActivity : BaseActivity() {
     }
 
     /**
-     * Init Statusbar and Navbar
+     * Init StatusBar and NavBar
      */
     private fun initStatusAndNavBar() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            window.navigationBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
-        }
+        setStatusBarColor(R.color.colorPrimary)
+        setNavBarColor(R.color.colorPrimary)
     }
 
     /**
@@ -71,16 +69,14 @@ class ImagesListActivity : BaseActivity() {
      * Init listeners
      */
     private fun initListeners() {
-        reloadTextView.setOnClickListener { viewModel.onReload() }
+        // reloadTextView.setOnClickListener { viewModel.onReload() }
     }
 
     /**
      * Init original state of views
      */
     private fun initViews() {
-        checkLoadingState(false)
-        recyclerView.visibility = View.VISIBLE
-        reloadTextView.visibility = View.GONE
+        checkLoadingState(true)
     }
 
     /**
@@ -101,10 +97,12 @@ class ImagesListActivity : BaseActivity() {
      * @param viewState current state of the view
      */
     private fun render(viewState: ImagesListViewState) {
-        initViews()
         when (viewState) {
             is ImagesListViewState.ShowLoading -> checkLoadingState(true)
-            is ImagesListViewState.DisplayImagesList -> imagesAdapter.update(viewState.images)
+            is ImagesListViewState.DisplayImagesList -> {
+                imagesAdapter.update(viewState.images)
+                checkLoadingState(false)
+            }
             is ImagesListViewState.NoInternet -> noInternet()
             is ImagesListViewState.OpenImageDetail -> openImageDetail(viewState.image)
             is ImagesListViewState.Error -> viewState.error?.let { displayError(it) }
@@ -120,10 +118,10 @@ class ImagesListActivity : BaseActivity() {
         if (isLoading) {
             // Show loading state
             hideRecyclerView()
+            stateImageView.setImageResource(R.drawable.loading_state)
         } else {
-            // llState.visibility = View.GONE
-            recyclerView.visibility = View.VISIBLE
-            reloadTextView.visibility = View.GONE
+            // Hide loading state
+            showRecyclerView()
         }
     }
 
@@ -131,12 +129,8 @@ class ImagesListActivity : BaseActivity() {
      * Inform the user to that he lost the internet connexion
      */
     private fun noInternet() {
-//        llState.visibility = View.VISIBLE
-//        tvStateTitle.text = getString(R.string.error_no_internet_connexion)
-//        animation.setAnimation(R.raw.error_animation)
-        reloadTextView.visibility = View.VISIBLE
-//        animation.playAnimation()
         hideRecyclerView()
+        stateImageView.setImageResource(R.drawable.no_internet_state)
     }
 
     /**
@@ -144,16 +138,16 @@ class ImagesListActivity : BaseActivity() {
      * @param image image  to display the detail from
      */
     private fun openImageDetail(image: NasaImage) {
-        Log.d("IMAGE_CLICKED", image.toString())
-        // ImageDetailActivity.start(this, image)
+        ImageDetailActivity.start(this, image)
     }
 
     /**
      * Inform the user to the error
      */
     private fun displayError(error: String) {
-        Toast.makeText(this, error, Toast.LENGTH_LONG).show()
         hideRecyclerView()
+        stateImageView.setImageResource(R.drawable.error_state)
+        Log.d("ERROR_IMAGES", error)
     }
 
     /**
@@ -161,13 +155,22 @@ class ImagesListActivity : BaseActivity() {
      */
     private fun displayEmptyListMessage() {
         hideRecyclerView()
+        stateImageView.setImageResource(R.drawable.empty_state)
     }
 
     /**
-     * Hide RecyclerView
+     * Hide the RecyclerView
      */
     private fun hideRecyclerView() {
-        recyclerView.visibility = View.INVISIBLE
+        recyclerView.visibility = View.GONE
+        stateImageView.visibility = View.VISIBLE
     }
 
+    /**
+     * Show the RecyclerView
+     */
+    private fun showRecyclerView() {
+        recyclerView.visibility = View.VISIBLE
+        stateImageView.visibility = View.GONE
+    }
 }

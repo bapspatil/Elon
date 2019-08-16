@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".ui.list.ImagesListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,12 +19,14 @@
         app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
         app:fastScrollVerticalTrackDrawable="@drawable/line_drawable" />
 
-    <TextView
-        android:id="@+id/reloadTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/stateImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:text="@string/reload"
-        android:textAllCaps="true" />
+        android:background="@color/white"
+        android:contentDescription="@string/state_image_description"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
 
 </RelativeLayout>
