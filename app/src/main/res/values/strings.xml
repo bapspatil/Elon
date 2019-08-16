@@ -3,4 +3,7 @@
     <string name="nasa_image_description">This is the image of the post</string>
     <string name="reload">Reload</string>
     <string name="state_image_description">State of the app</string>
+    <string name="dummy_date_center"><b>Center:</b> GSFC\n<b>Date Created:</b> 2015–02–21</string>
+    <string name="dummy_description">This image shows the star-studded center of the Milky Way towards the constellation of Sagittarius. The crowded center of our galaxy contains numerous complex and mysterious objects that are usually hidden at optical wavelengths by clouds of dust — but many are visible here in these infrared observations from Hubble.  However, the most famous cosmic object in this image still remains invisible: the monster at our galaxy’s heart called Sagittarius A*. Astronomers have observed stars spinning around this supermassive black hole (located right in the center of the image), and the black hole consuming clouds of dust as it affects its environment with its enormous gravitational pull.  Infrared observations can pierce through thick obscuring material to reveal information that is usually hidden to the optical observer. This is the best infrared image of this region ever taken with Hubble, and uses infrared archive data from Hubble’s Wide Field Camera 3, taken in September 2011.     Credit: NASA, ESA, and G. Brammer</string>
+    <string name="milky_way">THE MILKY WAY</string>
 </resources>

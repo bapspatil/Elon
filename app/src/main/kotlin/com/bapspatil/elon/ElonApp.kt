@@ -38,4 +38,10 @@ class ElonApp : Application(), HasAndroidInjector {
         @JvmStatic
         lateinit var elonAppComponent: ElonAppComponent
     }
+
+    // TODO: SharedElementTransition
+    // TODO: Refactoring styles
+    // TODO: Refactor everything
+    // TODO: UI tests
+    // TODO: Unit tests
 }

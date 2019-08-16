@@ -29,7 +29,7 @@ class ImagesRepositoryImpl
                 NasaImage(
                     image = nasaItem.links[0].href,
                     title = nasaItem.data[0].title,
-                    description = nasaItem.data[0].description,
+                    description = nasaItem.data[0].description.replace("  ", "<br><br>"),
                     center = nasaItem.data[0].center,
                     date = DateUtils.getLocalDateFromString(nasaItem.data[0].dateCreated)
                 )
