@@ -6,7 +6,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="DetailToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@color/white</item>
     </style>
 

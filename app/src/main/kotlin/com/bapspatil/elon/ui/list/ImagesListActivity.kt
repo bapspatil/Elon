@@ -50,6 +50,7 @@ class ImagesListActivity : BaseActivity() {
      * Init StatusBar and NavBar
      */
     private fun initStatusAndNavBar() {
+        setSupportActionBar(toolbar)
         setStatusBarColor(R.color.colorPrimary)
         setNavBarColor(R.color.colorPrimary)
     }

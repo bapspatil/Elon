@@ -39,6 +39,8 @@ class ElonApp : Application(), HasAndroidInjector {
         lateinit var elonAppComponent: ElonAppComponent
     }
 
+    // TODO: Add more animations
+    // TODO: Add custom fonts
     // TODO: SharedElementTransition
     // TODO: Refactoring styles
     // TODO: Refactor everything
