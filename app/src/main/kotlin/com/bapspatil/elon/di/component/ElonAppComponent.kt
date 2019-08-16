@@ -2,8 +2,7 @@ package com.bapspatil.elon.di.component
 
 import android.content.Context
 import com.bapspatil.elon.ElonApp
-import com.bapspatil.elon.di.module.ActivityModule
-import com.bapspatil.elon.di.module.NetworkModule
+import com.bapspatil.elon.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -19,7 +18,10 @@ import javax.inject.Singleton
         modules = [
             AndroidInjectionModule::class,
             ActivityModule::class,
-            NetworkModule::class
+            NetworkModule::class,
+            RepositoryModule::class,
+            UseCaseModule::class,
+            UtilModule::class
         ]
 )
 interface ElonAppComponent : AndroidInjector<ElonApp> {
