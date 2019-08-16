@@ -10,6 +10,9 @@ import javax.inject.Inject
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * ViewModel responsible for the business logic associated to image detail
+ */
 class ImageDetailViewModel
 @Inject constructor() : BaseViewModel<ImageDetailViewState>() {
 

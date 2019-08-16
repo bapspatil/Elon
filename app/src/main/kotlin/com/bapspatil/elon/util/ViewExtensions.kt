@@ -13,6 +13,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Sets an image URL to an `ImageView` with Glide
+ */
 fun ImageView.setImageWithGlide(url: String) {
     Glide.with(this)
             .load(url)
@@ -24,14 +27,23 @@ fun ImageView.setImageWithGlide(url: String) {
             .into(this)
 }
 
+/**
+ * Sets the NASA Center and date to a `TextView`
+ */
 fun TextView.setCenterAndDate(center: String, date: String) {
     this.text = "$center  |  $date"
 }
 
+/**
+ * Sets the navigation bar color
+ */
 fun Activity.setNavBarColor(@ColorRes color: Int) {
     window.navigationBarColor = ContextCompat.getColor(this, color)
 }
 
+/**
+ * Sets the status bar color
+ */
 fun Activity.setStatusBarColor(@ColorRes color: Int) {
     window.statusBarColor = ContextCompat.getColor(this, color)
 }

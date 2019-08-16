@@ -8,6 +8,9 @@ import io.reactivex.Observable
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Adapter for list of images
+ */
 abstract class ImagesAdapter : RecyclerView.Adapter<ImagesAdapterImpl.ImageViewHolder>() {
     abstract fun update(list: List<NasaImage>)
     abstract fun getClickedImage(): Observable<NasaImage>

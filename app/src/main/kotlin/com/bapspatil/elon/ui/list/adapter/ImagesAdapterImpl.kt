@@ -19,6 +19,9 @@ import javax.inject.Inject
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Adapter implementation for list of images
+ */
 class ImagesAdapterImpl
 @Inject constructor(private val diffCallback: DiffCallback) : ImagesAdapter() {
 

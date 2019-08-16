@@ -13,11 +13,17 @@ import okhttp3.ResponseBody
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Subscribes a `Single` to the IO thread and observes on the Android main thread
+ */
 fun <T> Single<T>.io(): Single<T> {
     return this.observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 }
 
+/**
+ * Subscribes a `Observable` to the IO thread and observes on the Android main thread
+ */
 fun <T> Observable<T>.io(): Observable<T> {
     return this.observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
@@ -27,8 +33,6 @@ fun <T> Observable<T>.io(): Observable<T> {
  *   REQUESTS : Convert ResponseBody to List of Object
  *   source : https://proandroiddev.com/retrofitting-and-rxjaving-heavy-jsons-2c1fcfa6383c
  */
-
-
 inline fun <reified T> ResponseBody.toObjectsList(): Single<List<T>> {
     val responseBody = this
     val gson = Gson()

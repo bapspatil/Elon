@@ -8,6 +8,9 @@ import dagger.Provides
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Module responsible for providing utilities
+ */
 @Module
 class UtilModule {
 

@@ -15,7 +15,7 @@ import javax.inject.Inject
 */
 
 /**
- * ViewModel responsible for the business logic associated to the list of posts view
+ * ViewModel responsible for the business logic associated to the list of images
  */
 class ImagesListViewModel
 @Inject constructor(
@@ -24,7 +24,7 @@ class ImagesListViewModel
 ) : BaseViewModel<ImagesListViewState>(), DefaultLifecycleObserver {
 
     /**
-     * Associated to the lifecycle of the activity; load the list of posts when the activity
+     * Associated to the lifecycle of the activity; load the list of images when the activity
      * is created
      *  @param owner LifecycleOwner
      */
@@ -42,7 +42,7 @@ class ImagesListViewModel
 
     /**
      * Callback when a row of the list of images is clicked; emit a OpenImageDetail
-     * action with the post associated to the row clicked
+     * action with the image associated to the row clicked
      *  @param image `NasaImage` associated to the row clicked
      */
     fun onRowClicked(image: NasaImage) {
@@ -62,7 +62,7 @@ class ImagesListViewModel
     }
 
     /**
-     * Emit the list of posts if not empty, otherwise emit a message to the user to inform that the list is empty
+     * Emit the list of images if not empty, otherwise emit a message to the user to inform that the list is empty
      *  @param images `NasaImage`s loaded
      */
     private fun success(images: List<NasaImage>) {

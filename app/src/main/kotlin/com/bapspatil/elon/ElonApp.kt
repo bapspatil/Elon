@@ -2,7 +2,6 @@ package com.bapspatil.elon
 
 import android.app.Application
 import com.bapspatil.elon.di.component.DaggerElonAppComponent
-import com.bapspatil.elon.di.component.ElonAppComponent
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -22,28 +21,31 @@ class ElonApp : Application(), HasAndroidInjector {
 
     override fun onCreate() {
         super.onCreate()
-        AndroidThreeTen.init(this)
+        initTimeZone()
         initDagger()
     }
 
+    /**
+     * Init time zone for AndroidThreeTen library
+     */
+    private fun initTimeZone() {
+        AndroidThreeTen.init(this)
+    }
+
+    /**
+     * Init Dagger 2 for Dependency Injection
+     */
     private fun initDagger() {
         DaggerElonAppComponent.builder()
             .context(this)
             .build()
-            .also { elonAppComponent = it }
-        elonAppComponent.inject(this)
+            .inject(this)
     }
 
-    companion object {
-        @JvmStatic
-        lateinit var elonAppComponent: ElonAppComponent
-    }
-
-    // TODO: Add more animations
     // TODO: Add custom fonts
-    // TODO: SharedElementTransition
-    // TODO: Refactoring styles
+    // TODO: Refactoring styles & dimens
     // TODO: Refactor everything
     // TODO: UI tests
     // TODO: Unit tests
+    // TODO: Get images with ResponseBody after parsing
 }

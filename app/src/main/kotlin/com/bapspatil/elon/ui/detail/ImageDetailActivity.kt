@@ -25,6 +25,9 @@ import javax.inject.Inject
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * View associated to image details
+ */
 class ImageDetailActivity : BaseActivity() {
 
     @Inject
@@ -108,6 +111,9 @@ class ImageDetailActivity : BaseActivity() {
         stateImageView.setImageResource(R.drawable.error_state)
     }
 
+    /**
+     * Handle options item selection
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this)

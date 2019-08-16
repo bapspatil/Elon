@@ -13,6 +13,10 @@ import dagger.Provides
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+
+/**
+ * Module for the `ImagesListActivity`
+ */
 @Module
 class ImagesListModule {
 

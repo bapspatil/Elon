@@ -9,6 +9,9 @@ import io.reactivex.disposables.CompositeDisposable
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Base Activity to handle disposables and dependency injection
+ */
 open class BaseActivity : AppCompatActivity() {
     // to avoid memory leak
     protected var disposables = CompositeDisposable()

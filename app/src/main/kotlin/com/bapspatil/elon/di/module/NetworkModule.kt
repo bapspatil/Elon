@@ -22,6 +22,9 @@ import javax.inject.Singleton
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Module responsible for providing network-related dependencies
+ */
 @Module
 class NetworkModule {
 

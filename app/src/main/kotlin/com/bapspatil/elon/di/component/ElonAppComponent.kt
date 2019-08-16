@@ -13,6 +13,9 @@ import javax.inject.Singleton
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * App component that has all the modules
+ */
 @Singleton
 @Component(
         modules = [

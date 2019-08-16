@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 */
 
 /**
- * Utils for recyclerview to check if there are some  difference between 2 lists, containing in the recyclerview, to improve
- * the recyclerview performance, as it won't rebuild the view from scratch
+ * Utils for `RecyclerView` to check if there are some  difference between 2 lists, containing in the RecyclerView, to improve
+ * the `RecyclerView` performance, as it won't rebuild the View from scratch
  */
 class DiffCallback : DiffUtil.Callback() {
 

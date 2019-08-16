@@ -70,7 +70,7 @@ class ImagesListActivity : BaseActivity() {
      * Init listeners
      */
     private fun initListeners() {
-        // reloadTextView.setOnClickListener { viewModel.onReload() }
+        swipeRefreshLayout.setOnRefreshListener { viewModel.onReload() }
     }
 
     /**
@@ -123,6 +123,7 @@ class ImagesListActivity : BaseActivity() {
         } else {
             // Hide loading state
             showRecyclerView()
+            swipeRefreshLayout.isRefreshing = false
         }
     }
 
@@ -131,6 +132,7 @@ class ImagesListActivity : BaseActivity() {
      */
     private fun noInternet() {
         hideRecyclerView()
+        swipeRefreshLayout.isRefreshing = false
         stateImageView.setImageResource(R.drawable.no_internet_state)
     }
 
@@ -147,6 +149,7 @@ class ImagesListActivity : BaseActivity() {
      */
     private fun displayError(error: String) {
         hideRecyclerView()
+        swipeRefreshLayout.isRefreshing = false
         stateImageView.setImageResource(R.drawable.error_state)
         Log.d("ERROR_IMAGES", error)
     }
@@ -156,6 +159,7 @@ class ImagesListActivity : BaseActivity() {
      */
     private fun displayEmptyListMessage() {
         hideRecyclerView()
+        swipeRefreshLayout.isRefreshing = false
         stateImageView.setImageResource(R.drawable.empty_state)
     }
 

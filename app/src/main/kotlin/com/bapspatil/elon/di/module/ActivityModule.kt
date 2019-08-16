@@ -11,6 +11,9 @@ import dagger.android.ContributesAndroidInjector
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Module that is responsible for injection in Activities
+ */
 @Module
 abstract class ActivityModule {
 

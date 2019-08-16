@@ -11,9 +11,16 @@ import javax.inject.Inject
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Repository implementation for getting the images from API
+ * This can later be extended to Database too
+ */
 class ImagesRepositoryImpl
 @Inject constructor(private val nasaService: NasaService) : ImagesRepository {
 
+    /**
+     * Gets images from API and maps it to `NasaImage`
+     */
     override fun getImagesFromApi(
         query: String?,
         mediaType: String?,
@@ -36,7 +43,5 @@ class ImagesRepositoryImpl
             }
             .toList()
     }
-
-    // TODO: Get images with ResponseBody after parsing
 
 }

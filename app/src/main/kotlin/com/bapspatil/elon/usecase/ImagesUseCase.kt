@@ -7,6 +7,16 @@ import io.reactivex.Single
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
+/**
+ * Use case for getting the images
+ * This is used for all business logic of the images
+ */
 interface ImagesUseCase {
+
+    /**
+     * Gets images from the API for now
+     * Can be extended to include business logic
+     */
     fun getImages(query: String?, mediaType: String?, yearStart: Int?, yearEnd: Int?): Single<List<NasaImage>>
+
 }
