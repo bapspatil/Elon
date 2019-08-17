@@ -97,6 +97,6 @@ ext {
         androidTestImplementation deps.test.mockito.core
         androidTestImplementation deps.test.extJunit
         androidTestImplementation deps.test.jUnit
-        androidTestImplementation deps.test.espressoIintents
+        androidTestImplementation deps.test.espressoIntents
     }
 }

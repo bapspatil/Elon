@@ -42,6 +42,4 @@ class ElonApp : Application(), HasAndroidInjector {
             .inject(this)
     }
 
-    // TODO: Update README
-    // TODO: Build APK file
 }

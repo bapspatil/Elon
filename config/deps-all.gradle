@@ -79,7 +79,7 @@ ext.deps = [
                 'runner'                : "androidx.test:runner:$versions.runner",
                 'rules'                 : "androidx.test:rules:$versions.androidxtest",
                 'espresso'              : "androidx.test.espresso:espresso-core:$versions.espresso",
-                'espressoIintents'      : "androidx.test.espresso:espresso-intents:$versions.espresso",
+                'espressoIntents'      : "androidx.test.espresso:espresso-intents:$versions.espresso",
                 'coretesting'           : "androidx.arch.core:core-testing:$versions.architecture",
                 'threetentest'          : "org.threeten:threetenbp:$versions.threetentest"
         ]

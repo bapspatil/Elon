@@ -3,13 +3,35 @@
 
 An Android app that shows a list of Milky Way images taken in 2017.
 
+## Screenshots
+
+<img src="./art/screens_all.png">
+
+## Libraries Used
+
+* [AndroidX](https://developer.android.com/jetpack/androidx/)
+* [Architecture Components](https://developer.android.com/topic/libraries/architecture)
+* [Dagger 2](http://dagger.dev)
+* [Retrofit](https://github.com/square/retrofit)
+* [RxJava 2](https://github.com/ReactiveX/RxJava)
+* [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+* [RxRelay](https://github.com/JakeWharton/RxRelay)
+* [Lottie](https://github.com/airbnb/lottie-android/)
+* [Glide](https://github.com/bumptech/glide)
+* [Material Components](https://material.io/develop/android/)
+* [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
+* [JUnit](https://junit.org/junit4/)
+* [Mockito](https://site.mockito.org/)
+* [Truth](https://github.com/google/truth)
+* [Espresso](https://developer.android.com/training/testing/espresso)
+
 ## Developed By
 
 Bapusaheb Patil
 
 <img src="https://github.com/bapspatil.png" width="20%">
 
-https://bapspatil.com
+[bapspatil.com](https://bapspatil.com)
 
 ## License
 
