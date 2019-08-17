@@ -31,7 +31,7 @@ class ImageDetailViewModel
 
     class Factory
     @Inject constructor() : ViewModelProvider.Factory {
-        @SuppressWarnings("UNCHECKED_CAST")
+        @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return ImageDetailViewModel() as T
         }

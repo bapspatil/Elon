@@ -87,7 +87,7 @@ class ImagesListViewModel
             private val imagesUseCase: ImagesUseCase,
             private val httpErrorUtils: HttpErrorUtils
     ) : ViewModelProvider.Factory {
-        @SuppressWarnings("UNCHECKED_CAST")
+        @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return ImagesListViewModel(imagesUseCase, httpErrorUtils) as T
         }
@@ -99,4 +99,5 @@ class ImagesListViewModel
         const val DEFAULT_YEAR_START = 2017
         const val DEFAULT_YEAR_END = 2017
     }
+
 }

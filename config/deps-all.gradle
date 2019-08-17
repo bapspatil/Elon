@@ -14,15 +14,15 @@ ext.deps = [
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         'kotlin'     : [
-                'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+                'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
                 'ktx'       : "androidx.core:core-ktx:$versions.ktx",
         ],
         'support'    : [
-                'compat'        : "androidx.appcompat:appcompat:$versions.supportx",
+                'compat'        : "androidx.appcompat:appcompat:$versions.appcompatx",
                 'constraint'    : "androidx.constraintlayout:constraintlayout:$versions.constraintx",
                 'cardView'      : "androidx.cardview:cardview:$versions.cardviewx",
-                'recyclerView'  : "androidx.recyclerview:recyclerview:$versions.supportx",
-                'design'        : "com.android.support:design:$versions.support",
+                'recyclerView'  : "androidx.recyclerview:recyclerview:$versions.recyclerviewx",
+                'swiperefreshlayout' : "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swiperefreshlayout",
                 'threeten'      : "com.jakewharton.threetenabp:threetenabp:$versions.threeten"
         ],
         'dagger'     : [
@@ -46,13 +46,9 @@ ext.deps = [
                 'relay'  : "com.jakewharton.rxrelay2:rxrelay:$versions.rxRelay",
         ],
         'ac'         : [
-                'viewModel'     : "android.arch.lifecycle:viewmodel:$versions.architecture",
-                'compiler'      : "android.arch.lifecycle:compiler:$versions.architecture",
-                'extensions'    : "android.arch.lifecycle:extensions:$versions.architecture",
-                'runtime'       : "android.arch.lifecycle:runtime:$versions.architecture",
-                'java'          : "android.arch.lifecycle:common-java8:$versions.architecture",
+                'extensions'    : "androidx.lifecycle:lifecycle-extensions:$versions.architecture",
+                'java'          : "androidx.lifecycle:lifecycle-common-java8:$versions.architecture",
         ],
-
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // UI                                                                                //
@@ -63,11 +59,7 @@ ext.deps = [
                 'lottie'                : "com.airbnb.android:lottie:$versions.lottie",
                 'glide'                 : "com.github.bumptech.glide:glide:$versions.glide",
                 'glidecompiler'         : "com.github.bumptech.glide:compiler:$versions.glide",
-                'material'              : "com.google.android.material:material:$versions.material",
-                'drag'                  : "com.github.davidmigloz:drag-to-close:$versions.drag",
-                'groupie'               : "com.xwray:groupie:$versions.groupie",
-                'groupieKtx'            : "com.xwray:groupie-kotlin-android-extensions:$versions.groupie",
-                'sparkButton'           : "com.github.varunest:sparkbutton:$versions.sparkButton"
+                'material'              : "com.google.android.material:material:$versions.material"
         ],
 
         ////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,7 +80,7 @@ ext.deps = [
                 'rules'                 : "androidx.test:rules:$versions.androidxtest",
                 'espresso'              : "androidx.test.espresso:espresso-core:$versions.espresso",
                 'espressoIintents'      : "androidx.test.espresso:espresso-intents:$versions.espresso",
-                'coretesting'           : "android.arch.core:core-testing:$versions.coretesting",
+                'coretesting'           : "androidx.arch.core:core-testing:$versions.architecture",
                 'threetentest'          : "org.threeten:threetenbp:$versions.threetentest"
         ]
 ]

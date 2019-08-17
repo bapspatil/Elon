@@ -52,11 +52,8 @@ ext {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     architectureComponents = Group {
-        implementation deps.ac.viewModel
-        implementation deps.ac.runtime
         implementation deps.ac.extensions
         implementation deps.ac.java
-        kapt deps.ac.compiler
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,16 +65,12 @@ ext {
         implementation deps.support.constraint
         implementation deps.support.cardView
         implementation deps.support.recyclerView
-        implementation deps.support.design
+        implementation deps.support.swiperefreshlayout
 
         implementation deps.ui.glide
         kapt deps.ui.glidecompiler
         implementation deps.ui.lottie
         implementation deps.ui.material
-        implementation deps.ui.drag
-        implementation deps.ui.groupie
-        implementation deps.ui.groupieKtx
-        implementation deps.ui.sparkButton
         implementation deps.support.threeten
     }
 

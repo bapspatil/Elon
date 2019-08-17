@@ -34,9 +34,7 @@ android {
             java.srcDirs += 'src/sharedTest/kotlin'
             java.srcDirs += 'src/androidTest/kotlin'
         }
-
     }
-
 }
 
 androidExtensions {
