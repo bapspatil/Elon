@@ -74,8 +74,8 @@ class ImageDetailActivityTest {
         }
         initDispatcherAndLaunchActivity(intent)
 
-        onView(withId(R.id.stateAnimationView)).check(matches(isDisplayed()))
         onView(withId(R.id.contentContainer)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.stateAnimationView)).check(matches(isDisplayed()))
     }
 
     private fun createFakeActivityInjector(block: ImageDetailActivity.() -> Unit)
