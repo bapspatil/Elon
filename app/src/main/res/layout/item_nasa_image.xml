@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/containerRelativeLayout"
     android:layout_width="match_parent"
-    android:layout_height="225dp"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginEnd="20dp"
+    android:layout_height="@dimen/item_nasa_image_height"
+    android:layout_marginStart="@dimen/item_nasa_image_margin_sides"
+    android:layout_marginTop="@dimen/item_nasa_image_margin_top"
+    android:layout_marginEnd="@dimen/item_nasa_image_margin_sides"
     android:orientation="vertical">
 
     <FrameLayout
@@ -37,12 +37,12 @@
         android:ellipsize="end"
         android:fontFamily="@font/trueno_bold"
         android:maxLines="2"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="12dp"
+        android:paddingStart="@dimen/item_nasa_image_padding_sides"
+        android:paddingEnd="@dimen/item_nasa_image_padding_sides"
+        android:paddingBottom="@dimen/item_nasa_image_title_padding_bottom"
         android:textColor="@color/white"
-        android:textSize="18sp"
-        tools:text="Hubble observes one of a kind image blah blah." />
+        android:textSize="@dimen/item_nasa_image_title_size"
+        tools:text="Hubble observes one of a kind image." />
 
     <TextView
         android:id="@+id/centerAndDateTextView"
@@ -51,10 +51,10 @@
         android:layout_alignParentBottom="true"
         android:ellipsize="end"
         android:maxLines="1"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
+        android:paddingStart="@dimen/item_nasa_image_padding_sides"
+        android:paddingEnd="@dimen/item_nasa_image_padding_sides"
+        android:paddingBottom="@dimen/item_nasa_image_center_padding_bottom"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="@dimen/item_nasa_image_center_size"
         tools:text="GSFC  |  2014-02-13" />
 </RelativeLayout>

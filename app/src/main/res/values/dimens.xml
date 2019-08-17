@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Created by Bapusaheb Patil {@link https://bapspatil.com}
+-->
+<resources>
+
+    <!--Images list screen-->
+    <dimen name="list_toolbar_padding">18dp</dimen>
+    <dimen name="list_recyclerview_padding_bottom">16dp</dimen>
+    <dimen name="list_animation_margin">64dp</dimen>
+
+    <!--Nasa image list item-->
+    <dimen name="item_nasa_image_height">225dp</dimen>
+    <dimen name="item_nasa_image_margin_sides">20dp</dimen>
+    <dimen name="item_nasa_image_margin_top">16dp</dimen>
+    <dimen name="item_nasa_image_padding_sides">16dp</dimen>
+    <dimen name="item_nasa_image_title_padding_bottom">12dp</dimen>
+    <dimen name="item_nasa_image_title_size">18sp</dimen>
+    <dimen name="item_nasa_image_center_padding_bottom">16dp</dimen>
+    <dimen name="item_nasa_image_center_size">14sp</dimen>
+
+    <!--Image detail screen-->
+    <dimen name="detail_appbar_height">225dp</dimen>
+    <dimen name="detail_title_margin_top">8dp</dimen>
+    <dimen name="detail_screen_padding">18dp</dimen>
+    <dimen name="detail_title_size">22sp</dimen>
+    <dimen name="detail_center_padding_bottom">16dp</dimen>
+    <dimen name="detail_center_size">18sp</dimen>
+
+</resources>

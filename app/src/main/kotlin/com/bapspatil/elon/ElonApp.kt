@@ -42,7 +42,7 @@ class ElonApp : Application(), HasAndroidInjector {
             .inject(this)
     }
 
-    // TODO: Refactoring styles & dimens
+    // TODO: Refactoring styles
     // TODO: Refactor everything
     // TODO: UI tests
     // TODO: Unit tests
