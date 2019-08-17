@@ -1,6 +1,6 @@
 package com.bapspatil.elon.repo
 
-import com.bapspatil.elon.model.NasaImage
+import com.bapspatil.elon.api.model.NasaResponse
 import io.reactivex.Single
 
 /*
@@ -16,6 +16,6 @@ interface ImagesRepository {
     /**
      * Gets images from API
      */
-    fun getImagesFromApi(query: String?, mediaType: String?, yearStart: Int?, yearEnd: Int?): Single<List<NasaImage>>
+    fun getImagesFromApi(query: String?, mediaType: String?, yearStart: Int?, yearEnd: Int?): Single<NasaResponse>
 
 }

@@ -57,7 +57,7 @@ class ImagesListActivityTest {
     @Test
     fun displayImagesList_whenFetchingImagesIsSuccessful() {
         val images = DataBuilder.getImages()
-        whenever(imagesUseCase.getImages("milky way", "image", 2017, 2017)).thenReturn(Single.just(DataBuilder.getImages()))
+        whenever(imagesUseCase.getImages(DataBuilder.DEFAULT_QUERY, DataBuilder.DEFAULT_MEDIA_TYPE, DataBuilder.DEFAULT_YEAR_START, DataBuilder.DEFAULT_YEAR_END)).thenReturn(Single.just(DataBuilder.getImages()))
         initDispatcherAndLaunchActivity()
 
         onView(withId(R.id.recyclerView)).check(matches(isDisplayed()))
@@ -68,7 +68,7 @@ class ImagesListActivityTest {
 
     @Test
     fun displayError_whenFetchingImagesIsUnsuccessful() {
-        whenever(imagesUseCase.getImages("milky way", "image", 2017, 2017)).thenReturn(Single.error(UnknownHostException()))
+        whenever(imagesUseCase.getImages(DataBuilder.DEFAULT_QUERY, DataBuilder.DEFAULT_MEDIA_TYPE, DataBuilder.DEFAULT_YEAR_START, DataBuilder.DEFAULT_YEAR_END)).thenReturn(Single.error(UnknownHostException()))
         initDispatcherAndLaunchActivity()
 
         onView(withId(R.id.stateAnimationView)).check(matches(isDisplayed()))
@@ -78,7 +78,7 @@ class ImagesListActivityTest {
 
     @Test
     fun displayNoInternet_whenFetchingImagesIsUnsuccessful() {
-        whenever(imagesUseCase.getImages("milky way", "image", 2017, 2017)).thenReturn(Single.error(Throwable("Error")))
+        whenever(imagesUseCase.getImages(DataBuilder.DEFAULT_QUERY, DataBuilder.DEFAULT_MEDIA_TYPE, DataBuilder.DEFAULT_YEAR_START, DataBuilder.DEFAULT_YEAR_END)).thenReturn(Single.error(Throwable("Error")))
         initDispatcherAndLaunchActivity()
 
         onView(withId(R.id.stateAnimationView)).check(matches(isDisplayed()))
@@ -88,7 +88,7 @@ class ImagesListActivityTest {
 
     @Test
     fun displayEmptyList_whenFetchingImagesIsUnsuccessful() {
-        whenever(imagesUseCase.getImages("milky way", "image", 2017, 2017)).thenReturn(Single.just(emptyList()))
+        whenever(imagesUseCase.getImages(DataBuilder.DEFAULT_QUERY, DataBuilder.DEFAULT_MEDIA_TYPE, DataBuilder.DEFAULT_YEAR_START, DataBuilder.DEFAULT_YEAR_END)).thenReturn(Single.just(emptyList()))
         initDispatcherAndLaunchActivity()
 
         onView(withId(R.id.stateAnimationView)).check(matches(isDisplayed()))

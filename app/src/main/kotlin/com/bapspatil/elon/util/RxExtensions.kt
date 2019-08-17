@@ -30,8 +30,9 @@ fun <T> Observable<T>.io(): Observable<T> {
 }
 
 /**
- *   REQUESTS : Convert ResponseBody to List of Object
- *   source : https://proandroiddev.com/retrofitting-and-rxjaving-heavy-jsons-2c1fcfa6383c
+ *   Convert ResponseBody to List of objects
+ *   This method lets you convert a ResponseBody to list of objects for faster parsing of heavier JSON data
+ *   Source: https://proandroiddev.com/retrofitting-and-rxjaving-heavy-jsons-2c1fcfa6383c
  */
 inline fun <reified T> ResponseBody.toObjectsList(): Single<List<T>> {
     val responseBody = this
