@@ -119,7 +119,7 @@ class ImagesListActivity : BaseActivity() {
         if (isLoading) {
             // Show loading state
             hideRecyclerView()
-            stateAnimationView.setAnimation(R.raw.rocket_fast)
+            stateAnimationView.setAnimation(R.raw.loading_state)
             stateAnimationView.playAnimation()
         } else {
             // Hide loading state

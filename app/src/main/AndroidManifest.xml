@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.list.ImagesListActivity" >
+            android:name=".ui.list.ImagesListActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +26,8 @@
 
         <activity
             android:name=".ui.detail.ImageDetailActivity"
-            android:parentActivityName=".ui.list.ImagesListActivity" />
+            android:parentActivityName=".ui.list.ImagesListActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

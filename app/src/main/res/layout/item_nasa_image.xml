@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/nasaImageView"
-            tools:src="@drawable/loading_state"
-            style="@style/ItemNasaImageViewStyle" />
+            style="@style/ItemNasaImageViewStyle"
+            tools:src="@drawable/loading_state" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -23,11 +23,11 @@
 
     <TextView
         android:id="@+id/titleTextView"
-        tools:text="Hubble observes one of a kind image."
-        style="@style/ItemNasaImageTitleTextViewStyle" />
+        style="@style/ItemNasaImageTitleTextViewStyle"
+        tools:text="Hubble observes one of a kind image." />
 
     <TextView
         android:id="@+id/centerAndDateTextView"
-        tools:text="GSFC  |  2014-02-13"
-        style="@style/ItemNasaImageCenterTextViewStyle" />
+        style="@style/ItemNasaImageCenterTextViewStyle"
+        tools:text="GSFC  |  2014-02-13" />
 </RelativeLayout>

@@ -13,6 +13,7 @@ An Android app that shows a list of Milky Way images taken in 2017.
 * [Architecture Components](https://developer.android.com/topic/libraries/architecture)
 * [Dagger 2](http://dagger.dev)
 * [Retrofit](https://github.com/square/retrofit)
+* [OkHttp](https://square.github.io/okhttp/)
 * [RxJava 2](https://github.com/ReactiveX/RxJava)
 * [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 * [RxRelay](https://github.com/JakeWharton/RxRelay)
