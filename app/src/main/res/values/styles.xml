@@ -1,5 +1,6 @@
 <resources>
 
+    <!--Main app theme-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -7,8 +8,122 @@
         <item name="android:fontFamily">@font/trueno</item>
     </style>
 
+    <!--Toolbar with white color controls-->
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <!--Images list screen styles-->
+    <style name="ListToolbarStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/trueno_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/list_toolbar_padding</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="ListRecyclerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:paddingBottom">@dimen/list_recyclerview_padding_bottom</item>
+    </style>
+    <style name="ListAnimationViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_margin">@dimen/list_animation_margin</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:contentDescription">@string/state_image_description</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!--Nasa image item styles-->
+    <style name="ItemNasaImageContainerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/item_nasa_image_height</item>
+        <item name="android:layout_marginStart">@dimen/item_nasa_image_margin_sides</item>
+        <item name="android:layout_marginTop">@dimen/item_nasa_image_margin_top</item>
+        <item name="android:layout_marginEnd">@dimen/item_nasa_image_margin_sides</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="ItemNasaImageViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:contentDescription">@string/nasa_image_description</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+    <style name="ItemNasaImageTitleTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_above">@id/centerAndDateTextView</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/trueno_bold</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:paddingStart">@dimen/item_nasa_image_padding_sides</item>
+        <item name="android:paddingEnd">@dimen/item_nasa_image_padding_sides</item>
+        <item name="android:paddingBottom">@dimen/item_nasa_image_title_padding_bottom</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/item_nasa_image_title_size</item>
+    </style>
+    <style name="ItemNasaImageCenterTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/trueno_light</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingStart">@dimen/item_nasa_image_padding_sides</item>
+        <item name="android:paddingEnd">@dimen/item_nasa_image_padding_sides</item>
+        <item name="android:paddingBottom">@dimen/item_nasa_image_center_padding_bottom</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/item_nasa_image_center_size</item>
+    </style>
+
+    <!--Image detail screen styles-->
+    <style name="DetailNasaImageViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+    <style name="DetailTitleTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/detail_title_margin_top</item>
+        <item name="android:fontFamily">@font/trueno_bold</item>
+        <item name="android:padding">@dimen/detail_screen_padding</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/detail_title_size</item>
+    </style>
+    <style name="DetailCenterTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/detail_screen_padding</item>
+        <item name="android:paddingEnd">@dimen/detail_screen_padding</item>
+        <item name="android:paddingBottom">@dimen/detail_center_padding_bottom</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/detail_center_size</item>
+    </style>
+    <style name="DetailDescriptionTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/trueno_light</item>
+        <item name="android:paddingStart">@dimen/detail_screen_padding</item>
+        <item name="android:paddingEnd">@dimen/detail_screen_padding</item>
+        <item name="android:paddingBottom">@dimen/detail_center_padding_bottom</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/detail_center_size</item>
+    </style>
+    <style name="DetailStateAnimationViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:contentDescription">@string/state_image_description</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:visibility">gone</item>
     </style>
 
 </resources>

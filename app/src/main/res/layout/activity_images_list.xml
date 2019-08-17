@@ -26,15 +26,8 @@
                 app:layout_collapseMode="pin">
 
                 <TextView
-                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/trueno_bold"
-                    android:gravity="center"
-                    android:padding="@dimen/list_toolbar_padding"
-                    android:text="@string/milky_way"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    style="@style/ListToolbarStyle"
+                    android:text="@string/milky_way" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -52,10 +45,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:paddingBottom="@dimen/list_recyclerview_padding_bottom"
+                style="@style/ListRecyclerViewStyle"
                 app:fastScrollEnabled="true"
                 app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
                 app:fastScrollHorizontalTrackDrawable="@drawable/line_drawable"
@@ -64,14 +54,7 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/stateAnimationView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_margin="@dimen/list_animation_margin"
-                android:background="@color/white"
-                android:contentDescription="@string/state_image_description"
-                android:scaleType="fitCenter"
-                android:visibility="gone"
+                style="@style/ListAnimationViewStyle"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true" />
         </RelativeLayout>

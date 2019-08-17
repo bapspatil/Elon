@@ -6,7 +6,7 @@
 
     <font
             android:fontStyle="normal"
-            android:font="@font/trueno_light" />
+            android:font="@font/trueno_regular" />
     <font
             android:fontStyle="italic"
             android:font="@font/trueno_italics" />

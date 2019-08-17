@@ -20,9 +20,7 @@
 
             <ImageView
                 android:id="@+id/nasaImageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                style="@style/DetailNasaImageViewStyle"
                 app:layout_collapseMode="parallax"
                 tools:src="@drawable/loading_state" />
 
@@ -53,54 +51,29 @@
 
                 <TextView
                     android:id="@+id/titleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/detail_title_margin_top"
-                    android:fontFamily="@font/trueno_bold"
-                    android:padding="@dimen/detail_screen_padding"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/detail_title_size"
+                    style="@style/DetailTitleTextViewStyle"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Hubble observes one of a kind image blah blah." />
 
                 <TextView
                     android:id="@+id/centerAndDateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/trueno_regular"
-                    android:paddingStart="@dimen/detail_screen_padding"
-                    android:paddingEnd="@dimen/detail_screen_padding"
-                    android:paddingBottom="@dimen/detail_center_padding_bottom"
+                    style="@style/DetailCenterTextViewStyle"
                     android:text="@string/dummy_date_center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/detail_center_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
                 <TextView
                     android:id="@+id/descriptionTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/detail_screen_padding"
-                    android:paddingEnd="@dimen/detail_screen_padding"
-                    android:paddingBottom="@dimen/detail_center_padding_bottom"
+                    style="@style/DetailDescriptionTextViewStyle"
                     android:text="@string/dummy_description"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/detail_center_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/centerAndDateTextView" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/stateAnimationView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@color/white"
-                android:contentDescription="@string/state_image_description"
-                android:scaleType="fitCenter"
-                android:visibility="gone"
+                style="@style/DetailStateAnimationViewStyle"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true" />
         </RelativeLayout>

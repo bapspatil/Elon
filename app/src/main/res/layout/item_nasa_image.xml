@@ -4,12 +4,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/containerRelativeLayout"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/item_nasa_image_height"
-    android:layout_marginStart="@dimen/item_nasa_image_margin_sides"
-    android:layout_marginTop="@dimen/item_nasa_image_margin_top"
-    android:layout_marginEnd="@dimen/item_nasa_image_margin_sides"
-    android:orientation="vertical">
+    style="@style/ItemNasaImageContainerStyle">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -17,11 +12,8 @@
 
         <ImageView
             android:id="@+id/nasaImageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/nasa_image_description"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/loading_state" />
+            tools:src="@drawable/loading_state"
+            style="@style/ItemNasaImageViewStyle" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -31,30 +23,11 @@
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/centerAndDateTextView"
-        android:ellipsize="end"
-        android:fontFamily="@font/trueno_bold"
-        android:maxLines="2"
-        android:paddingStart="@dimen/item_nasa_image_padding_sides"
-        android:paddingEnd="@dimen/item_nasa_image_padding_sides"
-        android:paddingBottom="@dimen/item_nasa_image_title_padding_bottom"
-        android:textColor="@color/white"
-        android:textSize="@dimen/item_nasa_image_title_size"
-        tools:text="Hubble observes one of a kind image." />
+        tools:text="Hubble observes one of a kind image."
+        style="@style/ItemNasaImageTitleTextViewStyle" />
 
     <TextView
         android:id="@+id/centerAndDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:paddingStart="@dimen/item_nasa_image_padding_sides"
-        android:paddingEnd="@dimen/item_nasa_image_padding_sides"
-        android:paddingBottom="@dimen/item_nasa_image_center_padding_bottom"
-        android:textColor="@color/white"
-        android:textSize="@dimen/item_nasa_image_center_size"
-        tools:text="GSFC  |  2014-02-13" />
+        tools:text="GSFC  |  2014-02-13"
+        style="@style/ItemNasaImageCenterTextViewStyle" />
 </RelativeLayout>
