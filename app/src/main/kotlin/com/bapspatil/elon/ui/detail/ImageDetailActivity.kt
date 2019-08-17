@@ -69,7 +69,7 @@ class ImageDetailActivity : BaseActivity() {
         val image = intent?.extras?.get(IMAGE_SELECTED) as NasaImage?
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ImageDetailViewModel::class.java)
         lifecycle.addObserver(viewModel)
-        viewModel.setImage(null)
+        viewModel.setImage(image)
         disposables.add(
                 viewModel.viewStateObservable
                         .io()

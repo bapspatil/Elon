@@ -35,13 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/centerAndDateTextView"
         android:ellipsize="end"
+        android:fontFamily="@font/trueno_bold"
         android:maxLines="2"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingBottom="12dp"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         tools:text="Hubble observes one of a kind image blah blah." />
 
     <TextView
@@ -55,7 +55,6 @@
         android:paddingEnd="16dp"
         android:paddingBottom="16dp"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         tools:text="GSFC  |  2014-02-13" />
-
 </RelativeLayout>
