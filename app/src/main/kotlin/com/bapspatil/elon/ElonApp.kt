@@ -42,8 +42,6 @@ class ElonApp : Application(), HasAndroidInjector {
             .inject(this)
     }
 
-    // TODO: Clean/Update deps
-    // TODO: Add art folder with icon, screenshots, color scheme and fonts
     // TODO: Update README
     // TODO: Build APK file
 }
