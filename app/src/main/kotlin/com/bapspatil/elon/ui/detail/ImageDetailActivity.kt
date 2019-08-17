@@ -55,9 +55,9 @@ class ImageDetailActivity : BaseActivity() {
     private fun initStatusAndNavBar() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        collapsing_toolbar_layout.title = getString(R.string.milky_way)
-        collapsing_toolbar_layout.setExpandedTitleColor(ContextCompat.getColor(this, android.R.color.transparent))
-        collapsing_toolbar_layout.setCollapsedTitleTextColor(ContextCompat.getColor(this, android.R.color.white))
+        collapsingToolbarLayout.title = getString(R.string.milky_way)
+        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, android.R.color.transparent))
+        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(this, android.R.color.white))
         setStatusBarColor(R.color.colorPrimary)
         setNavBarColor(R.color.colorPrimary)
     }
@@ -69,7 +69,7 @@ class ImageDetailActivity : BaseActivity() {
         val image = intent?.extras?.get(IMAGE_SELECTED) as NasaImage?
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ImageDetailViewModel::class.java)
         lifecycle.addObserver(viewModel)
-        viewModel.setImage(image)
+        viewModel.setImage(null)
         disposables.add(
                 viewModel.viewStateObservable
                         .io()
@@ -95,7 +95,7 @@ class ImageDetailActivity : BaseActivity() {
     private fun renderImageData(image: NasaImage) {
         showContent()
 
-        collapsing_toolbar_layout.title = image.title
+        collapsingToolbarLayout.title = image.title
         nasaImageView.setImageWithGlide(image.image)
         titleTextView.text = image.title
         descriptionTextView.text = HtmlCompat.fromHtml(image.description, HtmlCompat.FROM_HTML_MODE_LEGACY)
@@ -108,7 +108,8 @@ class ImageDetailActivity : BaseActivity() {
      */
     private fun showError() {
         hideContent()
-        stateImageView.setImageResource(R.drawable.error_state)
+        stateAnimationView.setAnimation(R.raw.error_loading)
+        stateAnimationView.playAnimation()
     }
 
     /**
@@ -127,7 +128,7 @@ class ImageDetailActivity : BaseActivity() {
      */
     private fun showContent() {
         contentContainer.visibility = View.VISIBLE
-        stateImageView.visibility = View.GONE
+        stateAnimationView.visibility = View.GONE
     }
 
     /**
@@ -135,7 +136,7 @@ class ImageDetailActivity : BaseActivity() {
      */
     private fun hideContent() {
         contentContainer.visibility = View.GONE
-        stateImageView.visibility = View.VISIBLE
+        stateAnimationView.visibility = View.VISIBLE
     }
 
     companion object {

@@ -119,7 +119,8 @@ class ImagesListActivity : BaseActivity() {
         if (isLoading) {
             // Show loading state
             hideRecyclerView()
-            stateImageView.setImageResource(R.drawable.loading_state)
+            stateAnimationView.setAnimation(R.raw.rocket_fast)
+            stateAnimationView.playAnimation()
         } else {
             // Hide loading state
             showRecyclerView()
@@ -133,7 +134,8 @@ class ImagesListActivity : BaseActivity() {
     private fun noInternet() {
         hideRecyclerView()
         swipeRefreshLayout.isRefreshing = false
-        stateImageView.setImageResource(R.drawable.no_internet_state)
+        stateAnimationView.setAnimation(R.raw.network_lost)
+        stateAnimationView.playAnimation()
     }
 
     /**
@@ -150,7 +152,8 @@ class ImagesListActivity : BaseActivity() {
     private fun displayError(error: String) {
         hideRecyclerView()
         swipeRefreshLayout.isRefreshing = false
-        stateImageView.setImageResource(R.drawable.error_state)
+        stateAnimationView.setAnimation(R.raw.error_loading)
+        stateAnimationView.playAnimation()
         Log.d("ERROR_IMAGES", error)
     }
 
@@ -160,7 +163,8 @@ class ImagesListActivity : BaseActivity() {
     private fun displayEmptyListMessage() {
         hideRecyclerView()
         swipeRefreshLayout.isRefreshing = false
-        stateImageView.setImageResource(R.drawable.empty_state)
+        stateAnimationView.setAnimation(R.raw.empty_box)
+        stateAnimationView.playAnimation()
     }
 
     /**
@@ -168,7 +172,7 @@ class ImagesListActivity : BaseActivity() {
      */
     private fun hideRecyclerView() {
         recyclerView.visibility = View.GONE
-        stateImageView.visibility = View.VISIBLE
+        stateAnimationView.visibility = View.VISIBLE
     }
 
     /**
@@ -176,6 +180,6 @@ class ImagesListActivity : BaseActivity() {
      */
     private fun showRecyclerView() {
         recyclerView.visibility = View.VISIBLE
-        stateImageView.visibility = View.GONE
+        stateAnimationView.visibility = View.GONE
     }
 }

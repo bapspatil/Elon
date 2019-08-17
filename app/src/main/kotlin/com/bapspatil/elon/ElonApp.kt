@@ -42,6 +42,7 @@ class ElonApp : Application(), HasAndroidInjector {
             .inject(this)
     }
 
+    // TODO: Replace state images with Lottie
     // TODO: Add custom fonts
     // TODO: Refactoring styles & dimens
     // TODO: Refactor everything
