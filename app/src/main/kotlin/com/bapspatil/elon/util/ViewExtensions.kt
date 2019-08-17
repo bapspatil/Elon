@@ -51,6 +51,10 @@ fun Activity.setStatusBarColor(@ColorRes color: Int) {
     window.statusBarColor = ContextCompat.getColor(this, color)
 }
 
+/**
+ * Customize the CollapsingToolbarLayout
+ * with custom font, title, expanded title color & collapsed title color
+ */
 fun CollapsingToolbarLayout.customize(
     @FontRes font: Int?,
     title: String?,

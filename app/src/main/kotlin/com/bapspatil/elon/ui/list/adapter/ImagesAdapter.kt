@@ -12,6 +12,15 @@ import io.reactivex.Observable
  * Adapter for list of images
  */
 abstract class ImagesAdapter : RecyclerView.Adapter<ImagesAdapterImpl.ImageViewHolder>() {
+
+    /**
+     * Update the list of images in the adapter from the View
+     */
     abstract fun update(list: List<NasaImage>)
+
+    /**
+     * Get the clicked image from the adapter
+     */
     abstract fun getClickedImage(): Observable<NasaImage>
+
 }

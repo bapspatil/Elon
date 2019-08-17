@@ -14,14 +14,22 @@ import io.reactivex.disposables.CompositeDisposable
  * Base ViewModel to manage the disposables
  */
 open class BaseViewModel<T> : ViewModel(), DefaultLifecycleObserver {
+
     protected val disposables = CompositeDisposable()
+
     private val viewStateRelay = BehaviorRelay.create<T>()
     open val viewStateObservable: Observable<T> = viewStateRelay.hide()
 
+    /**
+     * Emit the state of the view
+     */
     protected fun emitViewState(viewState: T) {
         viewStateRelay.accept(viewState)
     }
 
+    /**
+     * Disposables the disposables when ViewModel is cleared
+     */
     override fun onCleared() {
         super.onCleared()
         disposables.dispose()

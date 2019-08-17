@@ -15,6 +15,6 @@ import dagger.Provides
 class UtilModule {
 
     @Provides
-    fun providesDiffCallbackModule() = DiffCallback()
+    fun providesDiffCallbackModule(): DiffCallback = DiffCallback()
 
 }

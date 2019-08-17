@@ -13,17 +13,17 @@ import io.reactivex.disposables.CompositeDisposable
  * Base Activity to handle disposables and dependency injection
  */
 open class BaseActivity : AppCompatActivity() {
-    // to avoid memory leak
-    protected var disposables = CompositeDisposable()
+
+    protected var disposables = CompositeDisposable() // protected to avoid memory leak
+
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this) // Dagger 2 injection
+        super.onCreate(savedInstanceState)
+    }
 
     public override fun onDestroy() {
         super.onDestroy()
-        // free the memory
-        disposables.dispose()
+        disposables.dispose() // free the memory
     }
 
-    public override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
-        super.onCreate(savedInstanceState)
-    }
 }

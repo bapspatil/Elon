@@ -49,6 +49,9 @@ class ImagesAdapterImpl
         }
     }
 
+    /**
+     * Update the list of images in the adapter from the View
+     */
     override fun update(list: List<NasaImage>) {
         diffCallback.compareLists(this.images, list)
         val differenceFound = DiffUtil.calculateDiff(diffCallback)
@@ -57,5 +60,8 @@ class ImagesAdapterImpl
         differenceFound.dispatchUpdatesTo(this)
     }
 
+    /**
+     * Get the clicked image from the adapter
+     */
     override fun getClickedImage(): Observable<NasaImage> = clickSubject
 }

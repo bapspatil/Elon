@@ -12,11 +12,9 @@ import java.net.UnknownHostException
 class HttpErrorUtils {
 
     /**
-     * Check if the user has list the connexion given the throwable thrown
+     * Check if the user has lost the connection, given the throwable thrown
      * @param throwable throwable to check
      * @return true if he user has lost connection, false otherwise
      */
-    fun hasLostInternet(throwable: Throwable): Boolean {
-        return throwable is UnknownHostException
-    }
+    fun hasLostInternet(throwable: Throwable): Boolean = throwable is UnknownHostException
 }

@@ -15,7 +15,7 @@ interface ImagesUseCase {
 
     /**
      * Gets images from the API for now
-     * Can be extended to include business logic
+     * Can be extended to include more complex business logic in the future
      */
     fun getImages(query: String?, mediaType: String?, yearStart: Int?, yearEnd: Int?): Single<List<NasaImage>>
 

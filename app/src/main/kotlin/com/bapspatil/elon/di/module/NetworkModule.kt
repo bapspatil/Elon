@@ -35,14 +35,13 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideHttpLoggingInterceptor() = HttpLoggingInterceptor().apply {
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    // responsible to create the cache interceptor. Simple one at the moment but could be improved
-    // to cache differently per resource
+    // responsible to create the cache interceptor.
     @Provides
-    fun provideNetworkCacheInterceptor() = Interceptor { chain ->
+    fun provideNetworkCacheInterceptor(): Interceptor = Interceptor { chain ->
         val response = chain.proceed(chain.request())
 
         val cacheControl = CacheControl.Builder()
@@ -56,40 +55,38 @@ class NetworkModule {
 
     @Provides
     fun createOkHttpClient(
+            cache: Cache,
             networkInterceptor: Interceptor,
             httpLoggingInterceptor: HttpLoggingInterceptor
-    ): OkHttpClient {
-        return OkHttpClient.Builder().apply {
-            if (BuildConfig.DEBUG) {
-                addInterceptor(httpLoggingInterceptor)
-            }
-            addInterceptor(networkInterceptor)
-            addInterceptor { chain ->
-                val request = chain
-                        .request()
-                        .newBuilder()
+    ): OkHttpClient = OkHttpClient.Builder().apply {
+        cache(cache)
+        if (BuildConfig.DEBUG) {
+            addInterceptor(httpLoggingInterceptor)
+        }
+        addInterceptor(networkInterceptor)
+        addInterceptor { chain ->
+            val request = chain
+                    .request()
+                    .newBuilder()
 
-                chain.proceed(request.build())
-            }
-            readTimeout(TIMEOUT_SEC, TimeUnit.SECONDS)
-            connectTimeout(TIMEOUT_SEC, TimeUnit.SECONDS)
-        }.build()
-    }
+            chain.proceed(request.build())
+        }
+        readTimeout(TIMEOUT_SEC, TimeUnit.SECONDS)
+        connectTimeout(TIMEOUT_SEC, TimeUnit.SECONDS)
+    }.build()
 
 
     @Provides
     @Singleton
-    fun createRetrofit(client: OkHttpClient): Retrofit {
-        return Retrofit.Builder().apply {
-            baseUrl(BuildConfig.PROD_BASE_URL)
-            client(client)
-            addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            addConverterFactory(GsonConverterFactory.create())
-        }.build()
-    }
+    fun createRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder().apply {
+        baseUrl(BuildConfig.PROD_BASE_URL)
+        client(client)
+        addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        addConverterFactory(GsonConverterFactory.create())
+    }.build()
 
     @Provides
-    fun createHttpErrorUtils() = HttpErrorUtils()
+    fun createHttpErrorUtils(): HttpErrorUtils = HttpErrorUtils()
 
     @Provides
     fun createNasaService(retrofit: Retrofit): NasaService = retrofit.create(NasaService::class.java)

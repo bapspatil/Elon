@@ -22,26 +22,25 @@ class ImagesRepositoryImpl
      * Gets images from API and maps it to `NasaImage`
      */
     override fun getImagesFromApi(
-        query: String?,
-        mediaType: String?,
-        yearStart: Int?,
-        yearEnd: Int?
-    ): Single<List<NasaImage>> {
-        return nasaService.getNasaData(query, mediaType, yearStart, yearEnd)
-            .io()
-            .map { data -> data.collection.items }
-            .toObservable()
-            .flatMapIterable { it }
-            .map { nasaItem ->
-                NasaImage(
-                    image = nasaItem.links[0].href,
-                    title = nasaItem.data[0].title,
-                    description = nasaItem.data[0].description.replace("  ", "<br><br>"),
-                    center = nasaItem.data[0].center,
-                    date = DateUtils.getLocalDateFromString(nasaItem.data[0].dateCreated)
-                )
-            }
-            .toList()
-    }
+            query: String?,
+            mediaType: String?,
+            yearStart: Int?,
+            yearEnd: Int?
+    ): Single<List<NasaImage>> =
+            nasaService.getNasaData(query, mediaType, yearStart, yearEnd)
+                    .io()
+                    .map { data -> data.collection.items }
+                    .toObservable()
+                    .flatMapIterable { it }
+                    .map { nasaItem ->
+                        NasaImage(
+                                image = nasaItem.links[0].href,
+                                title = nasaItem.data[0].title,
+                                description = nasaItem.data[0].description.replace("  ", "<br><br>"),
+                                center = nasaItem.data[0].center,
+                                date = DateUtils.getLocalDateFromString(nasaItem.data[0].dateCreated)
+                        )
+                    }
+                    .toList()
 
 }

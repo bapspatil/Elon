@@ -109,17 +109,6 @@ class ImageDetailActivity : BaseActivity() {
     }
 
     /**
-     * Handle options item selection
-     */
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            NavUtils.navigateUpFromSameTask(this)
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
-    /**
      * Show the content of the image data
      */
     private fun showContent() {
@@ -135,13 +124,24 @@ class ImageDetailActivity : BaseActivity() {
         stateAnimationView.visibility = View.VISIBLE
     }
 
+    /**
+     * Handle options item selection
+     */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this)
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     companion object {
 
         @VisibleForTesting
         const val IMAGE_SELECTED = "image_selected"
 
         /**
-         * Start the activity with the post associated to the view
+         * Start the activity with the image associated to the view
          * @param context current `Context`
          * @param image `NasaImage` associated to the view
          */
