@@ -26,8 +26,15 @@ android {
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+        test {
+            java.srcDirs += 'src/sharedTest/kotlin'
+            java.srcDirs += 'src/test/kotlin'
+        }
+        androidTest {
+            java.srcDirs += 'src/sharedTest/kotlin'
+            java.srcDirs += 'src/androidTest/kotlin'
+        }
+
     }
 
 }

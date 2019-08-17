@@ -10,7 +10,7 @@ android {
         applicationId "com.bapspatil.elon"
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.bapspatil.elon.di.EspressoTestRunner"
     }
     buildTypes {
         release {
