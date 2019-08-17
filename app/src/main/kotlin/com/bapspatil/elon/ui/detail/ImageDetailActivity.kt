@@ -46,7 +46,7 @@ class ImageDetailActivity : BaseActivity() {
     }
 
     /**
-     * Init Toolbar, StatusBar and NavBar
+     * Init toolbar, status bar and navigation bar
      */
     private fun initBars() {
         setSupportActionBar(toolbar)
@@ -75,7 +75,7 @@ class ImageDetailActivity : BaseActivity() {
 
     /**
      * Render the view with the actions given the current state of the view
-     * @param viewState current state of the view
+     * @param viewState Current state of the view
      */
     private fun render(viewState: ImageDetailViewState) {
         when (viewState) {
@@ -142,8 +142,8 @@ class ImageDetailActivity : BaseActivity() {
 
         /**
          * Start the activity with the image associated to the view
-         * @param context current `Context`
-         * @param image `NasaImage` associated to the view
+         * @param context current Context
+         * @param image NasaImage associated to the view
          */
         fun start(context: Context, image: NasaImage) {
             val intent = Intent(context, ImageDetailActivity::class.java)

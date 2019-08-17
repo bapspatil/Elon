@@ -62,7 +62,8 @@ class ImagesListViewModel
     }
 
     /**
-     * Emit the list of images if not empty, otherwise emit a message to the user to inform that the list is empty
+     * Emit the list of images if not empty,
+     * otherwise emit a message to the user to inform that the list is empty
      *  @param images `NasaImage`s loaded
      */
     private fun success(images: List<NasaImage>) {
@@ -73,7 +74,8 @@ class ImagesListViewModel
     }
 
     /**
-     * Error thrown from the request to lost the image. Emit the error with the message to the view
+     * Error thrown from the request
+     * Emit the error with the message to the view
      */
     private fun error(throwable: Throwable) {
         when (httpErrorUtils.hasLostInternet(throwable)) {

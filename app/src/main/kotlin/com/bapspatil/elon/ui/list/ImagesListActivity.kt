@@ -47,7 +47,7 @@ class ImagesListActivity : BaseActivity() {
     }
 
     /**
-     * Init StatusBar and NavBar
+     * Init status bar and navigation bar
      */
     private fun initBars() {
         setSupportActionBar(toolbar)
@@ -129,7 +129,7 @@ class ImagesListActivity : BaseActivity() {
     }
 
     /**
-     * Inform the user to that he lost the internet connexion
+     * Inform the user that internet connection is lost
      */
     private fun noInternet() {
         hideRecyclerView()
@@ -139,15 +139,15 @@ class ImagesListActivity : BaseActivity() {
     }
 
     /**
-     * open the detail of a image in the different view
-     * @param image image  to display the detail from
+     * Open the detail of a image in a different view
+     * @param image NasaImage  to display the detail from
      */
     private fun openImageDetail(image: NasaImage) {
         ImageDetailActivity.start(this, image)
     }
 
     /**
-     * Inform the user to the error
+     * Inform the user about the error
      */
     private fun displayError(error: String) {
         hideRecyclerView()
@@ -158,7 +158,7 @@ class ImagesListActivity : BaseActivity() {
     }
 
     /**
-     * Inform the user to that the list of images is empty
+     * Inform the user that the list of images is empty
      */
     private fun displayEmptyListMessage() {
         hideRecyclerView()
