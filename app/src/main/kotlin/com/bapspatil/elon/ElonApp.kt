@@ -43,7 +43,6 @@ class ElonApp : Application(), HasAndroidInjector {
     }
 
     // TODO: Refactor everything
-    // TODO: Add app icon
     // TODO: UI tests
     // TODO: Unit tests
     // TODO: Get images with ResponseBody after parsing
