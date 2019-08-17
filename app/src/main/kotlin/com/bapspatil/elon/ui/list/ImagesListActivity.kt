@@ -40,7 +40,7 @@ class ImagesListActivity : BaseActivity() {
      * Init the View
      */
     private fun init() {
-        initStatusAndNavBar()
+        initBars()
         initRecyclerView()
         initListeners()
         initViews()
@@ -49,7 +49,7 @@ class ImagesListActivity : BaseActivity() {
     /**
      * Init StatusBar and NavBar
      */
-    private fun initStatusAndNavBar() {
+    private fun initBars() {
         setSupportActionBar(toolbar)
         setStatusBarColor(R.color.colorPrimary)
         setNavBarColor(R.color.colorPrimary)

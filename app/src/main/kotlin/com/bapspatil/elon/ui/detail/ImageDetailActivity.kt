@@ -8,16 +8,12 @@ import android.view.MenuItem
 import android.view.View
 import androidx.annotation.VisibleForTesting
 import androidx.core.app.NavUtils
-import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProviders
 import com.bapspatil.elon.R
 import com.bapspatil.elon.model.NasaImage
 import com.bapspatil.elon.ui.base.BaseActivity
-import com.bapspatil.elon.util.io
-import com.bapspatil.elon.util.setImageWithGlide
-import com.bapspatil.elon.util.setNavBarColor
-import com.bapspatil.elon.util.setStatusBarColor
+import com.bapspatil.elon.util.*
 import kotlinx.android.synthetic.main.activity_image_detail.*
 import javax.inject.Inject
 
@@ -46,18 +42,18 @@ class ImageDetailActivity : BaseActivity() {
      * Init the View
      */
     private fun init() {
-        initStatusAndNavBar()
+        initBars()
     }
 
     /**
-     * Init StatusBar and NavBar
+     * Init Toolbar, StatusBar and NavBar
      */
-    private fun initStatusAndNavBar() {
+    private fun initBars() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        collapsingToolbarLayout.title = getString(R.string.milky_way)
-        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, android.R.color.transparent))
-        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(this, android.R.color.white))
+
+        collapsingToolbarLayout.customize(R.font.trueno_bold, getString(R.string.milky_way), android.R.color.transparent, R.color.white)
+
         setStatusBarColor(R.color.colorPrimary)
         setNavBarColor(R.color.colorPrimary)
     }
