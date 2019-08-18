@@ -3,9 +3,46 @@
 
 An Android app that shows a list of Milky Way images taken in 2017.
 
+You can find the APK file in [Releases](https://github.com/bapspatil/Elon/releases) or in the root directory.
+
+A modified `gradle.properties` file is included in Git only for the purpose of demonstrating how I've made Gradle builds faster.
+
+`ktlint.gradle` is included to enforce better Kotlin codestyle and linting.
+
 ## Screenshots
 
 <img src="./art/screens_all.png">
+
+## Architecture
+
+> MVI + Architecture Components (ViewModel & Lifecycle-aware components) + Dagger 2 + RxJava 2 + Retrofit
+
+I've used MVI architecture for this app because it has better state management and makes use of ViewModels and view states to acheive the same.
+
+Repositories are used to make network calls for now. They can also be extended to make database calls in the future.
+
+Use Cases are used to perform business logic operations on the data obtained from the repositories.
+
+UI & unit tests are written for every single aspect of the app.
+
+### Why didn't I choose MVP or MVVM?
+
+Great question!
+
+Testing with MVP (Model-View-Presenter) is hard. Also, MVP requires you to have one View in every Presenter.
+
+MVVM (Model-View-ViewModel) is better than MVP in the sense that it doesn't require you to have a View for each ViewModel, but there is the problem of state synchronization. The state between the View and the ViewModel tends to be out of sync if the code isn't robust.
+
+### So how does MVI solve this issue?
+
+That's another fantastic question, you're on quite a roll! 
+
+MVI is short for Model-View-Intent. Here, Intent means the intention with which we're performing certain actions in our app.
+
+In short, MVI solves the state synchronization issue by storing states as model classes, in the form of Kotlin sealed classes. We modify the state with our ViewModel based on certain events and then render the View by observing the state in our View.
+
+To read more about MVI, why it's a good architecture and how it solves the state synchronization issue, you can find the article by Hannes Dorfmann here: <br>
+[Model-View-Intent on Android](http://hannesdorfmann.com/android/model-view-intent)
 
 ## Libraries Used
 
@@ -72,6 +109,14 @@ I've used Google's Truth library for fluent assertions in testing. This makes te
 ### [Espresso](https://developer.android.com/training/testing/espresso)
 
 I've used Espresso for UI testing in this app. Espresso makes it easy to write reliable user interface tests.
+
+## Things to work on in the future
+
+* LiveData and Data Binding could be used for cleaner View-related code.
+* RecyclerViewMatcher tests in `androidTest` only matches and asserts the first item in the RecyclerView for now. It could be extended to match all items by scrolling down to each item and making assertions.
+* Koin could be used in place of Dagger 2 for cleaner code.
+* RxJava 2 could be replaced with Kotlin Coroutines; Retrofit now supports `Deferred`.
+* Better UI with Material Components.
 
 ## Developed By
 
