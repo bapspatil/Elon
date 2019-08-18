@@ -9,22 +9,69 @@ An Android app that shows a list of Milky Way images taken in 2017.
 
 ## Libraries Used
 
-* [AndroidX](https://developer.android.com/jetpack/androidx/)
-* [Architecture Components](https://developer.android.com/topic/libraries/architecture)
-* [Dagger 2](http://dagger.dev)
-* [Retrofit](https://github.com/square/retrofit)
-* [OkHttp](https://square.github.io/okhttp/)
-* [RxJava 2](https://github.com/ReactiveX/RxJava)
-* [RxAndroid](https://github.com/ReactiveX/RxAndroid)
-* [RxRelay](https://github.com/JakeWharton/RxRelay)
-* [Lottie](https://github.com/airbnb/lottie-android/)
-* [Glide](https://github.com/bumptech/glide)
-* [Material Components](https://material.io/develop/android/)
-* [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
-* [JUnit](https://junit.org/junit4/)
-* [Mockito](https://site.mockito.org/)
-* [Truth](https://github.com/google/truth)
-* [Espresso](https://developer.android.com/training/testing/espresso)
+### [AndroidX](https://developer.android.com/jetpack/androidx/)
+
+This app uses AndroidX libraries with modules like `appcompat`, `core-ktx`, `constraintlayout`, `cardview`, `recyclerview` and `swiperefreshlayout`.
+
+### [Architecture Components](https://developer.android.com/topic/libraries/architecture)
+
+Android Architecture Components like ViewModel and Lifecycle-aware components are implemented in this app for a more robust, testable and maintainable codebase.
+
+### [Dagger 2](http://dagger.dev)
+
+Dagger 2 is responsible for Dependency Injection throughout the app. It is also used in UI testing to inject dependencies for Activities.
+
+### [Retrofit](https://github.com/square/retrofit)
+
+Retrofit with GSON is used for networking in the app to make API calls to the NASA service.
+
+### [OkHttp](https://square.github.io/okhttp/)
+
+Although Retrofit is dependent on OkHttp and comes with OkHttp included, I've only included the `logging-interceptor` module to log all body-level details related to the network calls.
+
+### [RxJava 2](https://github.com/ReactiveX/RxJava)
+
+RxJava 2 is used for Reactive Programming throughout this app. You'll find most of its usages in ViewModels, Use Cases and Repositories. It also works with Retrofit to adapt API responses into Observables.
+
+### [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+
+I've used this because RxAndroid adds the minimum classes to RxJava that make writing reactive components in Android applications easy and hassle-free. More specifically, it provides a `Scheduler` that schedules on the main thread or any given `Looper`.
+
+### [RxRelay](https://github.com/JakeWharton/RxRelay)
+
+Relays are RxJava types which are both an `Observable` and a `Consumer`. I've used this in the app with Kotlin sealed classes to manage view states which are relayed by the ViewModel and consumed by the View.
+
+### [Lottie](https://github.com/airbnb/lottie-android/)
+
+Lottie is an amazing library for easy animations in Android, iOS and Web. The animations seen in this app are downloaded from [LottieFiles](https://lottiefiles.com/) and represent some of the states of the app: **Loading**, **Error**, **No Internet** and **Empty List**.
+
+### [Glide](https://github.com/bumptech/glide)
+
+Glide is the image library used in this app. It is fast and offers more fine-grained control over image loading.
+
+### [Material Components](https://material.io/develop/android/)
+
+Material Components provide beautiful UI elements with a lots of customizations. I've used this because it defines the latest standards for design by Google. Although none of the latest Material Components are used in the current version of the app, if I were to do a UI rehaul, I would implement some of the Material Components by Google.
+
+### [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
+
+This is Jake Wharton's Android backport of the ThreeTen library. I've used this for date management in the app, and the original ThreeTen library has been included for testing if needed.
+
+### [JUnit](https://junit.org/junit4/)
+
+JUnit is the unit testing framework that I've used in my app.
+
+### [Mockito](https://site.mockito.org/)
+
+Mockito is the mocking framework for unit testing I've used in this app and it lets you create test objects for the purpose of test-driven development or behaviour-driven development.
+
+### [Truth](https://github.com/google/truth)
+
+I've used Google's Truth library for fluent assertions in testing. This makes test assertions and failure messages more readable.
+
+### [Espresso](https://developer.android.com/training/testing/espresso)
+
+I've used Espresso for UI testing in this app. Espresso makes it easy to write reliable user interface tests.
 
 ## Developed By
 
