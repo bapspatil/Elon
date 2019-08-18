@@ -2,69 +2,92 @@ package com.bapspatil.elon.util
 
 import android.content.res.Resources
 import android.view.View
+import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 
+/**
+ * Object used to obtain a [Matcher] for a [RecyclerView.ViewHolder.itemView] or a specific [View] inside of a [RecyclerView.ViewHolder.itemView].
+ *
+ * Example code to click on a button in the first row of the [RecyclerView]:
+ * ```
+ * onView(RecyclerViewMatcher.recyclerViewWithId(R.id.recyclerview).viewHolderViewAtPosition(0, R.id.adapter_button))
+ *   .perform(click())
+ * ```
+ */
+class RecyclerViewMatcher(@IdRes private val recyclerViewId: Int) {
 
-class RecyclerViewMatcher(private val recyclerViewId: Int) {
+    companion object {
+        private const val INVALID_ID = -1
 
-    fun atPosition(position: Int): Matcher<View> {
-        return atPositionOnView(position, -1)
+        /**
+         * Receive a [RecyclerViewMatcher] with the View ID of the [RecyclerView] you want to interact with.
+         */
+        fun recyclerViewWithId(@IdRes viewId: Int): RecyclerViewMatcher {
+            return RecyclerViewMatcher(viewId)
+        }
     }
 
-    fun atPositionOnView(position: Int, targetViewId: Int): Matcher<View> {
+    /**
+     * Receive a [Matcher] for the [RecyclerView.ViewHolder.itemView] at a certain position.
+     *
+     * @param index Zero based index for the row in the [RecyclerView] you want.
+     *
+     * @return [Matcher] you can run assertions and perform actions on.
+     */
+    fun itemViewAtIndex(index: Int): Matcher<View> {
+        return viewHolderViewAtPosition(index, INVALID_ID)
+    }
 
+    /**
+     * Receive a [Matcher] for a specific view inside of a [RecyclerView.ViewHolder] at a certain position.
+     *
+     * @param index Zero based index for the row in the [RecyclerView] you want.
+     * @param targetViewId View id in the [RecyclerView.ViewHolder] you want to interact with.
+     *
+     * @return [Matcher] you can run assertions and perform actions on.
+     */
+    fun viewHolderViewAtPosition(index: Int, @IdRes targetViewId: Int): Matcher<View> {
         return object : TypeSafeMatcher<View>() {
             var resources: Resources? = null
-            var childView: View? = null
+            var itemView: View? = null
 
             override fun describeTo(description: Description) {
                 var idDescription = recyclerViewId.toString()
-                if (this.resources != null) {
-                    idDescription = try {
-                        this.resources!!.getResourceName(recyclerViewId)
-                    } catch (var4: Resources.NotFoundException) {
-                        String.format(
-                            "%s (resource name not found)",
-                            Integer.valueOf(recyclerViewId)
-                        )
-                    }
 
+                resources?.let { resources ->
+                    idDescription = try {
+                        resources.getResourceName(recyclerViewId)
+                    } catch (notFound: Resources.NotFoundException) {
+                        "%s (resource name not found)".format(Integer.valueOf(recyclerViewId))
+                    }
                 }
 
-                description.appendText("with id: $idDescription")
+                description.appendText("RecyclerView view with id: $idDescription not found.")
             }
 
-            public override fun matchesSafely(view: View): Boolean {
-
+            override fun matchesSafely(view: View): Boolean {
                 this.resources = view.resources
 
-                if (childView == null) {
-                    val recyclerView = view.rootView.findViewById(recyclerViewId) as RecyclerView?
+                if (itemView == null) {
+                    val recyclerView: RecyclerView? = view.rootView.findViewById(recyclerViewId) as? RecyclerView
                     if (recyclerView != null && recyclerView.id == recyclerViewId) {
-                        childView = recyclerView.findViewHolderForAdapterPosition(position)?.itemView
+                        itemView = recyclerView.findViewHolderForAdapterPosition(index)!!.itemView
                     } else {
                         return false
                     }
                 }
 
-                return if (targetViewId == -1) {
-                    view === childView
+                return if (targetViewId == INVALID_ID) {
+                    view === itemView
                 } else {
-                    val targetView = childView?.findViewById(targetViewId) as View?
+                    val targetView = itemView!!.findViewById<View>(targetViewId)
                     view === targetView
                 }
 
             }
         }
     }
-
-    companion object {
-        fun withRecyclerView(recyclerViewId: Int): RecyclerViewMatcher {
-            return RecyclerViewMatcher(recyclerViewId)
-        }
-    }
-
 }

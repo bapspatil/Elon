@@ -2,8 +2,7 @@ package com.bapspatil.elon.list
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
@@ -18,6 +17,8 @@ import com.bapspatil.elon.usecase.ImagesUseCase
 import com.bapspatil.elon.util.CustomAssertions.Companion.hasItemCount
 import com.bapspatil.elon.util.DataBuilder
 import com.bapspatil.elon.util.DiffCallback
+import com.bapspatil.elon.util.RecyclerViewMatcher
+import com.bapspatil.elon.util.RecyclerViewMatcher.Companion.recyclerViewWithId
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import dagger.android.AndroidInjector
@@ -63,6 +64,13 @@ class ImagesListActivityTest {
         onView(withId(R.id.recyclerView)).check(matches(isDisplayed()))
         onView(withId(R.id.recyclerView)).check(hasItemCount(images.size))
 
+        val recyclerViewMatcher: RecyclerViewMatcher = recyclerViewWithId(R.id.recyclerView)
+        onView(recyclerViewMatcher.viewHolderViewAtPosition(0, R.id.nasaImageView)).check(matches(isDisplayed()))
+        onView(recyclerViewMatcher.viewHolderViewAtPosition(0, R.id.titleTextView)).check(matches(withText(images[0].title)))
+        onView(recyclerViewMatcher.viewHolderViewAtPosition(0, R.id.titleTextView)).check(matches(isDisplayed()))
+        onView(recyclerViewMatcher.viewHolderViewAtPosition(0, R.id.centerAndDateTextView)).check(matches(withText("${images[0].center}  |  ${images[0].date}")))
+        onView(recyclerViewMatcher.viewHolderViewAtPosition(0, R.id.centerAndDateTextView)).check(matches(isDisplayed()))
+
         onView(withId(R.id.stateAnimationView)).check(matches(not(isDisplayed())))
     }
 
@@ -106,8 +114,8 @@ class ImagesListActivityTest {
         }
         val factory = AndroidInjector.Factory<Any> { injector }
         val map = mapOf(
-            Pair<Class<*>,
-                    Provider<AndroidInjector.Factory<*>>>(ImagesListActivity::class.java, Provider { factory })
+                Pair<Class<*>,
+                        Provider<AndroidInjector.Factory<*>>>(ImagesListActivity::class.java, Provider { factory })
         )
         return DispatchingAndroidInjector_Factory.newInstance(map, emptyMap())
     }
