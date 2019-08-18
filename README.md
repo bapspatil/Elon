@@ -19,6 +19,8 @@ A modified `gradle.properties` file is included in Git only for the purpose of d
 
 I've used MVI architecture for this app because it has better state management and makes use of ViewModels and view states to acheive the same.
 
+MVI is short for Model-View-Intent. Here, Intent means the intention with which we're performing certain actions in our app; not [`Intent`](https://developer.android.com/reference/android/content/Intent), as in the Android object.
+
 Repositories are used to make network calls for now. They can also be extended to make database calls in the future.
 
 Use Cases are used to perform business logic operations on the data obtained from the repositories.
@@ -37,9 +39,7 @@ MVVM (Model-View-ViewModel) is better than MVP in the sense that it doesn't requ
 
 That's another fantastic question, you're on quite a roll! 
 
-MVI is short for Model-View-Intent. Here, Intent means the intention with which we're performing certain actions in our app.
-
-In short, MVI solves the state synchronization issue by storing states as model classes, in the form of Kotlin sealed classes. We modify the state with our ViewModel based on certain events and then render the View by observing the state in our View.
+MVI solves the state synchronization issue by storing states as model classes, in the form of Kotlin sealed classes. We modify the state with our ViewModel based on certain events and then render the View by observing the state in our View.
 
 To read more about MVI, why it's a good architecture and how it solves the state synchronization issue, you can find the article by Hannes Dorfmann here: <br>
 [Model-View-Intent on Android](http://hannesdorfmann.com/android/model-view-intent)
