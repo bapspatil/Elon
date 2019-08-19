@@ -44,6 +44,17 @@ MVI solves the state synchronization issue by storing states as model classes, i
 To read more about MVI, why it's a good architecture and how it solves the state synchronization issue, you can find the article by Hannes Dorfmann here: <br>
 [Model-View-Intent on Android](http://hannesdorfmann.com/android/model-view-intent)
 
+## Gradle Configuration
+
+There are 6 Gradle files in the `config` folder:
+
+* `config-android.gradle`: Contains all the common module-level Android Gradle configurations that we'd normally apply in our module-level `build.gradle` file.
+* `config-properties.gradle`: Gets all the hidden properties from the `variables.properties` file, for later use in the app with `BuildConfig`.
+* `deps-all.gradle`: Declares all the dependenices for the project and its modules.
+* `deps-groups.gradle`: Groups all the dependenices from the `deps-all.gradle` file for cleaner syntax when including them in module-level `build.gradle` file.
+* `deps-versions.gradle`: Used to maintain the versions for all the dependencies declared in `deps-all.gradle`.
+* `variables.properties`: Contains all the hidden properties that we obtain in our `config-properties.gradle` file. Normally, this shouldn't be in version control, but I've uploaded it for the sake of demonstration.
+
 ## Libraries Used
 
 ### [AndroidX](https://developer.android.com/jetpack/androidx/)
@@ -110,7 +121,7 @@ I've used Google's Truth library for fluent assertions in testing. This makes te
 
 I've used Espresso for UI testing in this app. Espresso makes it easy to write reliable user interface tests.
 
-## Things to work on in the future
+## Things To Work On In The Future
 
 * LiveData and Data Binding could be used for cleaner View-related code.
 * RecyclerViewMatcher tests in `androidTest` only matches and asserts the first item in the RecyclerView for now. It could be extended to match all items by scrolling down to each item and making assertions.
